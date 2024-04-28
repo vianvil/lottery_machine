@@ -1,6 +1,8 @@
 import sys
 import pygame
 
+from coins import Coins
+
 class LotteryMachine:
     """Main class to manage game"""
     def __init__(self):
@@ -9,6 +11,8 @@ class LotteryMachine:
 
         self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Lottery Machine")
+
+        self.coin = Coins(self)
 
     
     def run_game(self):
@@ -24,6 +28,9 @@ class LotteryMachine:
         
             #coloring the screen
             self.screen.fill((30,144,255))
+            #drawing the coins
+            self.coin.blitme()
+            
             #displaying the screen
             pygame.display.flip()
         
